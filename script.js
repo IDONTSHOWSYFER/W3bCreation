@@ -25,6 +25,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  var logo = document.querySelector(".header-container .logo");
+  if (logo) {
+    logo.addEventListener("click", function() {
+      window.location.href = "index.html";
+    });
+  }
+});
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-inner .slide');
 const totalSlides = slides.length;
