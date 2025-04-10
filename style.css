@@ -80,15 +80,10 @@ nav {
   margin: 0;
 }
 
-/* On masque le logo interne au <ul> en grand écran */
 .nav-links > .logo {
   display: none;
 }
 
-/* En-dessous de 800px :
-   - le logo interne du <ul> devient visible en haut du menu
-   - le burger s'affiche à droite (margin-left: auto)
-*/
 @media (max-width: 800px) {
   .nav-links > .logo {
     display: block;
@@ -131,7 +126,7 @@ nav {
 }
 
 .burger.toggle span:first-child {
-  transform: translateY(11px) rotate(45deg);
+  transform: translateY(2px) rotate(45deg);
 }
 
 .burger.toggle span:nth-child(2) {
@@ -139,7 +134,7 @@ nav {
 }
 
 .burger.toggle span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
+  transform: translateY(-15px) rotate(-45deg);
 }
 
 .hero {
@@ -167,6 +162,7 @@ nav {
 
 .hero-content p {
   margin-bottom: 40px;
+  font-size: 20px;
 }
 
 .cta .cta-btn,
@@ -508,8 +504,8 @@ footer .socials a:hover {
   .nav-links {
     position: absolute;
     right: 0;
-    top: -10px;
-    height: calc(100vh - 70px);
+    top: 0px;
+    height: calc(100vh);
     background-color: #000;
     flex-direction: column;
     align-items: center;
@@ -537,7 +533,6 @@ footer .socials a:hover {
   .nav-active {
     transform: translateX(0);
   }
-  /* Burger à droite */
   .burger {
     display: flex;
     width: 25px;
