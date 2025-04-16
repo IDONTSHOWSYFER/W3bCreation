@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <title>W3bCreation - Votre partenaire en création de sites web</title>
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/brand/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
   <header>
     <div class="offer-banner-bottom">
@@ -16,27 +18,30 @@
         Offre Spéciale : Consultation gratuite pour les 10 premiers inscrits !
         <span id="countdown"></span>
       </p>
-      <button class="cta-btn" 
-        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
         Profitez-en
       </button>
     </div>
     <div class="header-container">
       <div class="logo">
         <img src="img/brand/w3bcreation.png" alt="Logo W3bCreation">
+        <span>W3BCREATION</span>
       </div>
       <nav>
         <ul class="nav-links">
           <div class="logo">
             <img src="img/brand/w3bcreation.png" alt="Logo W3bCreation">
           </div>
-          <li><a href="#hero" data-analytics="hero-link">Accueil</a></li>
-          <li><a href="#services" data-analytics="services-link">Services</a></li>
-          <li><a href="#why" data-analytics="why-link">Pourquoi nous choisir ?</a></li>
-          <li><a href="#testimonials" data-analytics="testimonials-link">Témoignages</a></li>
-          <li><a href="#arguments" data-analytics="arguments-link">Arguments</a></li>
+          <li><a href="#hero" data-analytics="hero-link">ACCUEIL</a></li>
+          <li><a href="#services" data-analytics="services-link">SERVICES</a></li>
+          <li><a href="#why" data-analytics="why-link">POURQUOI NOUS CHOISIR ?</a></li>
+          <li><a href="#testimonials" data-analytics="testimonials-link">TÉMOIGNAGES</a></li>
+          <li><a href="#arguments" data-analytics="arguments-link">ARGUMENTS</a></li>
           <li><a href="#faq" data-analytics="faq-link">FAQ</a></li>
-          <li><a href="#contact" data-analytics="contact-link">Contact</a></li>
+          <button class="contact-btn"
+            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+            Contact
+          </button>
         </ul>
         <div class="burger">
           <span class="line"></span>
@@ -51,10 +56,13 @@
     <div class="hero-content">
       <h2>Votre site web, notre passion</h2>
       <p>Des designs épurés et un tunnel de conversion optimisé pour booster votre activité.</p>
-      <button class="cta-btn" 
-        onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+      <button class="devis-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+      data-analytics="devis-hero">
+      Obtenir un devis ➔
+    </button>
+      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
         data-analytics="cta-hero">
-        En savoir plus
+        En savoir plus ➔
       </button>
     </div>
   </section>
@@ -252,9 +260,6 @@
       </a>
       <a href="https://www.facebook.com/w3bCreation" target="_blank" title="Facebook" data-analytics="social-facebook">
         <img src="https://cdn.simpleicons.org/facebook" alt="Facebook Icon" width="60" height="60" />
-      </a>
-      <a href="https://github.com/w3bCreation" target="_blank" title="GitHub" data-analytics="social-github">
-        <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub Icon" width="60" height="60" />
       </a>
     </div>
     <p>© 2025 W3bCreation. Tous droits réservés.</p>

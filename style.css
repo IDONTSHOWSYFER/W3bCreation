@@ -103,8 +103,20 @@ header {
   background-color: #8e44ad;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
   max-height: 60px;
+}
+
+.logo span {
+  margin-left: 10px;
+  font-size: 0.75em; 
+  font-weight: bold;
+  color: #fff;
 }
 
 .mobile-logo {
@@ -149,6 +161,7 @@ nav {
   color: #fff;
   font-weight: 700;
   display: block;
+  font-size: 0.80rem;
   width: 100%;
 }
 
@@ -182,8 +195,9 @@ nav {
 
 .hero {
   margin-top: 0;
-  background: linear-gradient(rgba(160, 32, 240, 0.7), rgba(160, 32, 240, 0.7)),
-              url('https://via.placeholder.com/1600x600') center center/cover no-repeat;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('/img/data/banner.png') center center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -210,16 +224,50 @@ nav {
 
 .cta .cta-btn,
 .cta-btn {
-  background-color: #fff;
-  color: #a020f0;
+  background: transparent;  
+  color: rgb(255, 255, 255);
   padding: 15px 30px;
   font-size: 1.2em;
-  border: none;
+  border: 2px solid white;
+  border-radius: 25px;
 }
 
 .cta .cta-btn:hover,
 .cta-btn:hover {
+  background-color: #000000;
+}
+
+.devis .devis-btn,
+.devis-btn {
+  background: linear-gradient(45deg, #a020f0, #ff69b4);
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 25px;
+  border: none;
+}
+
+.devis .devis-btn:hover,
+.devis-btn:hover {
   background-color: #f4f4f4;
+}
+
+.contact .contact-btn,
+.contact-btn {
+  background: linear-gradient(45deg, #a020f0, #ff69b4);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.contact .contact-btn:hover,
+.contact-btn:hover {
+  transform: scale(1.05);
 }
 
 .contact-form-section,
@@ -243,34 +291,24 @@ nav {
   color: #555;
 }
 
-/* 
-   Mise en page .cms-logos
-   - Grand écran : 1 ligne
-   - Moyen écran : deux lignes (flex-wrap)
-   - Petit écran : 1 colonne
-*/
 .cms-logos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  max-width: 1000px; 
+  margin: 20px auto 0; 
 }
 
 .cms-logos img {
-  max-width: 120px;
-  object-fit: contain;
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 25px;
 }
 
-@media (max-width: 1023px) {
-  .cms-logos {
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 767px) {
-  .cms-logos {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 600px) {
+  .cms-logo {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -468,14 +506,14 @@ form#mailForm button {
   content: "+";
   position: absolute;
   left: 0;
-  color: #a020f0;
+  color: green;
 }
 
 .arguments-columns .cons ul li::before {
   content: "-";
   position: absolute;
   left: 0;
-  color: #a020f0;
+  color: red;
 }
 
 .faq-container {
@@ -559,7 +597,58 @@ footer .socials a:hover {
   color: #a020f0;
 }
 
+@media (min-width: 1200px) {
+  .contact .contact-btn,
+  .contact-btn {
+  margin-top: -12.5px;
+  margin-left: 15px;
+  }
+  .offer-banner-bottom .offer-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 5px;
+    line-height: 2;
+  }
+  
+  .offer-banner-bottom #countdown {
+    font-weight: bold;
+    color: #9b59b6;
+  }
+  
+  .offer-banner-bottom .cta-btn {
+    background-color: #9b59b6;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contact .contact-btn,
+  .contact-btn {
+  margin-top: -12.5px;
+  margin-left: 15px;
+  }
+}
+
+@media (min-width: 865px) {
+  .nav {
+    font-size: 10px;
+  }
+}
+
 @media (max-width: 800px) {
+  .hero {
+    height: 50vh;
+    margin-top: 100px;
+  }
   .mobile-logo,
   .nav-links li a {
     display: block;
@@ -609,9 +698,8 @@ footer .socials a:hover {
   .hero-content p {
     font-size: 1em;
   }
-  .cms-logos {
-    flex-direction: column;
-    align-items: center;
+  .cta-btn {
+    margin-top: 15px;
   }
   .arguments-columns {
     flex-direction: column;
