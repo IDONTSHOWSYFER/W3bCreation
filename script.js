@@ -34,6 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const devisBtn = document.querySelector('.devis-btn');
+  if (!devisBtn) return;
+
+  devisBtn.addEventListener('click', () => {
+    window.location.href = 'https://form.typeform.com/to/egofKTXa';
+  });
+});
+
 const offerBanner = document.querySelector('.offer-banner-bottom');
 let lastScrollBottom = 0;
 let bannerHeight = offerBanner.offsetHeight;

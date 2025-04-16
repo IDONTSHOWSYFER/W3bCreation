@@ -693,6 +693,9 @@ footer .socials a:hover {
     height: 25px;
     margin-left: auto;
   }
+  .contact-btn {
+    margin: 0;
+  }
   .hero-content h2 {
     font-size: 2.2em;
   }
@@ -708,6 +711,17 @@ footer .socials a:hover {
   }
   .faq-container {
     text-align: left;
+  }
+}
+
+@media (max-width: 500px) {
+  .carousel-control {
+    font-size: 1em;
+    padding: 5px;
+  }
+  footer .socials a img {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -733,17 +747,6 @@ footer .socials a:hover {
   }
   .arguments-columns ul li {
     font-size: 0.95em;
-  }
-}
-
-@media (max-width: 500px) {
-  .carousel-control {
-    font-size: 1em;
-    padding: 5px;
-  }
-  footer .socials a img {
-    width: 50px;
-    height: 50px;
   }
 }
 
