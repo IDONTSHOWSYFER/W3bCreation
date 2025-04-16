@@ -62,11 +62,17 @@ setInterval(() => {
 
 updateCarousel();
 
+emailjs.init("cyYjm4hHlRdYwNrkL");
+
+// Sélection du formulaire et de l'élément de feedback
 const mailForm = document.getElementById("mailForm");
 const formFeedback = document.getElementById("formFeedback");
 
+// Écouteur d'événement pour le submit du formulaire
 mailForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault(); // Empêche le rechargement de la page
+
+  // Vérification des champs (optionnelle si déjà validée par HTML)
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
@@ -75,12 +81,18 @@ mailForm.addEventListener("submit", function (e) {
     formFeedback.textContent = "Tous les champs sont obligatoires.";
     return;
   }
-  formFeedback.style.color = "green";
-  formFeedback.textContent = "Merci ! Votre message a été envoyé.";
-  setTimeout(() => {
-    mailForm.reset();
-    formFeedback.textContent = "";
-  }, 3000);
-});
 
-emailjs.init("YOUR_PUBLIC_KEY");
+  // Envoi de l'email via EmailJS
+  // Remplacez "template_YOUR_TEMPLATE_ID" par l'ID de votre template dans EmailJS.
+  emailjs.sendForm('service_920psxp', 'template_7v794nc', this)
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        formFeedback.style.color = "green";
+        formFeedback.textContent = "Merci ! Votre message a été envoyé.";
+        mailForm.reset();
+    }, function(error) {
+        console.error('FAILED...', error);
+        formFeedback.style.color = "red";
+        formFeedback.textContent = "Erreur lors de l’envoi du message. Veuillez réessayer.";
+    });
+});
