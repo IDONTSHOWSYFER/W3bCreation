@@ -57,7 +57,50 @@ header {
 .header-container {
   display: flex;
   align-items: center;
+  margin-top: 10px;
   justify-content: space-between;
+}
+
+.offer-banner-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid #9b59b6;
+  padding: 5px 10px;
+  text-align: center;
+  transition: bottom 0.3s ease;
+  z-index: 1100;
+}
+
+.offer-banner-bottom .offer-text {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  color: #fff;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.offer-banner-bottom #countdown {
+  font-weight: bold;
+  color: #9b59b6;
+}
+
+.offer-banner-bottom .cta-btn {
+  background-color: #9b59b6;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 15px;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.offer-banner-bottom .cta-btn:hover {
+  background-color: #8e44ad;
 }
 
 .logo img {
@@ -248,6 +291,27 @@ nav {
   font-size: 1.1em;
   margin-bottom: 20px;
   color: #555;
+}
+
+.why-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px; 
+  margin: 20px auto 0; 
+}
+
+.why-images img {
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+@media (max-width: 600px) {
+  .why-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .arguments {

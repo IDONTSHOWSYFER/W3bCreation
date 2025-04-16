@@ -34,6 +34,24 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+const offerBanner = document.querySelector('.offer-banner-bottom');
+let lastScrollBottom = 0;
+let bannerHeight = offerBanner.offsetHeight;
+
+window.addEventListener('resize', () => {
+  bannerHeight = offerBanner.offsetHeight;
+});
+
+window.addEventListener('scroll', () => {
+  const scrollBottom = window.pageYOffset || document.documentElement.scrollBottom;
+  if (scrollBottom > lastScrollBottom) {
+    offerBanner.style.bottom = `-${bannerHeight}px`;
+  } else {
+    offerBanner.style.bottom = '0';
+  }
+  lastScrollBottom = scrollBottom;
+});
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-inner .slide');
 const totalSlides = slides.length;
@@ -61,6 +79,25 @@ setInterval(() => {
 }, 5000);
 
 updateCarousel();
+
+// Exemple simple d'un compte à rebours sur 24h
+const countdownElement = document.getElementById("countdown");
+const deadline = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+const interval = setInterval(() => {
+  const now = new Date();
+  const distance = deadline - now;
+  if (distance < 0) {
+    clearInterval(interval);
+    countdownElement.innerHTML = "L'offre est terminée";
+    return;
+  }
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+}, 1000);
 
 emailjs.init("cyYjm4hHlRdYwNrkL");
 

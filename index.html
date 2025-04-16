@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <title>W3bCreation - Votre partenaire en création de sites web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/brand/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <header>
+    <div class="offer-banner-bottom">
+      <p class="offer-text">
+        Offre Spéciale : Consultation gratuite pour les 10 premiers inscrits !
+        <span id="countdown"></span>
+      </p>
+      <button class="cta-btn" 
+        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+        Profitez-en
+      </button>
+    </div>
     <div class="header-container">
       <div class="logo">
         <img src="img/brand/w3bcreation.png" alt="Logo W3bCreation">
@@ -19,13 +30,13 @@
           <div class="logo">
             <img src="img/brand/w3bcreation.png" alt="Logo W3bCreation">
           </div>
-          <li><a href="#hero">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why">Pourquoi nous choisir ?</a></li>
-          <li><a href="#testimonials">Témoignages</a></li>
-          <li><a href="#arguments">Arguments</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" data-analytics="hero-link">Accueil</a></li>
+          <li><a href="#services" data-analytics="services-link">Services</a></li>
+          <li><a href="#why" data-analytics="why-link">Pourquoi nous choisir ?</a></li>
+          <li><a href="#testimonials" data-analytics="testimonials-link">Témoignages</a></li>
+          <li><a href="#arguments" data-analytics="arguments-link">Arguments</a></li>
+          <li><a href="#faq" data-analytics="faq-link">FAQ</a></li>
+          <li><a href="#contact" data-analytics="contact-link">Contact</a></li>
         </ul>
         <div class="burger">
           <span class="line"></span>
@@ -35,16 +46,25 @@
       </nav>
     </div>
   </header>
+
   <section class="hero" id="hero">
     <div class="hero-content">
       <h2>Votre site web, notre passion</h2>
       <p>Des designs épurés et un tunnel de conversion optimisé pour booster votre activité.</p>
-      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">En savoir plus</button>
+      <button class="cta-btn" 
+        onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+        data-analytics="cta-hero">
+        En savoir plus
+      </button>
     </div>
   </section>
+
   <section class="services" id="services">
     <h3>Nos Services</h3>
-    <p>Nous concevons vos sites web avec élégance et performance.<br><br> Nous utilisons des CMS puissants tels que Shopify, WordPress, Webflow ainsi que des solutions codées sur mesure pour répondre à vos besoins.</p>
+    <p>
+      Nous concevons vos sites web avec élégance et performance.<br><br> 
+      Nous utilisons des CMS puissants tels que Shopify, WordPress, Webflow ainsi que des solutions codées sur mesure pour répondre à vos besoins.
+    </p>
     <div class="cms-logos">
       <img src="img/data/shopify.png" alt="Shopify">
       <img src="img/data/wordpress.png" alt="WordPress">
@@ -52,9 +72,13 @@
       <img src="img/data/code.png" alt="Codé sur mesure">
     </div>
   </section>
+
   <section class="why" id="why">
     <h3>Pourquoi nous choisir ?</h3>
-    <p>Notre expertise sur-mesure garantit une optimisation complète de votre conversion.<br> Nous analysons vos besoins, créons un design unique et assurons un suivi personnalisé.</p>
+    <p>
+      Notre expertise sur-mesure garantit une optimisation complète de votre conversion.<br>
+      Nous analysons vos besoins, créons un design unique et assurons un suivi personnalisé.
+    </p>
     <ul class="arguments">
       <li>Analyse approfondie et conseil dédié</li>
       <li>Design épuré et moderne à votre image</li>
@@ -62,7 +86,14 @@
       <li>Optimisation SEO et compatibilité mobile</li>
       <li>Support technique réactif et personnalisé</li>
     </ul>
+    <div class="why-images">
+      <img src="img/data/uxui.png" alt="UX/UI">
+      <img src="img/data/seo.png" alt="SEO">
+      <img src="img/data/analytics.png" alt="Analytics">
+      <img src="img/data/support.png" alt="Support">
+    </div>
   </section>
+
   <section class="testimonials" id="testimonials">
     <h3>Ce que disent nos clients</h3>
     <div class="carousel">
@@ -141,11 +172,12 @@
       <button class="carousel-control next" onclick="changeSlide(1)">&#10095;</button>
     </div>
   </section>
+
   <section class="detailed-arguments" id="arguments">
     <h3>Arguments détaillés</h3>
     <div class="arguments-columns">
       <div class="pros">
-        <h4>Points Positifs</h4>
+        <h4 style="color: green">Points Positifs</h4>
         <ul>
           <li>Taux de conversion fortement amélioré</li>
           <li>Design sur mesure qui valorise votre image</li>
@@ -155,7 +187,7 @@
         </ul>
       </div>
       <div class="cons">
-        <h4>Points Négatifs</h4>
+        <h4 style="color: red;">Points Négatifs</h4>
         <ul>
           <li>Designs génériques peu performants</li>
           <li>Aucune optimisation mobile ni SEO</li>
@@ -166,6 +198,7 @@
       </div>
     </div>
   </section>
+
   <section class="faq" id="faq">
     <h3>FAQ</h3>
     <div class="faq-container">
@@ -183,6 +216,7 @@
       </div>
     </div>
   </section>
+
   <section class="contact-form-section" id="contact">
     <h3>Contactez-nous</h3>
     <p>Remplissez le formulaire ci-dessous pour une consultation gratuite et découvrez comment nous pouvons transformer votre business.</p>
@@ -190,35 +224,43 @@
       <input type="text" id="name" name="name" placeholder="Votre nom" required>
       <input type="email" id="email" name="email" placeholder="Votre email" required>
       <textarea id="message" name="message" placeholder="Votre message" required></textarea>
-      <button type="submit" class="cta-btn">Envoyer</button>
+      <button type="submit" class="cta-btn" data-analytics="cta-form-submit">Envoyer</button>
       <p id="formFeedback" class="feedback"></p>
     </form>
   </section>
+
   <section class="cta">
     <h3>Prêt à booster votre présence en ligne ?</h3>
     <p>Contactez-nous dès aujourd'hui pour transformer votre business.</p>
-    <button class="cta-btn" onclick="window.location.href='mailto:w3bcreation@gmail.com'">Contactez-nous</button>
+    <button class="cta-btn" 
+      onclick="window.location.href='mailto:w3bcreation@gmail.com'" 
+      data-analytics="cta-footer-contact">
+      Contactez-nous
+    </button>
   </section>
+
   <footer>
     <div class="socials">
-      <a href="https://linktr.ee/w3bCreation" target="_blank" title="Linktree">
+      <a href="https://linktr.ee/w3bCreation" target="_blank" title="Linktree" data-analytics="social-linktree">
         <img src="https://cdn.simpleicons.org/linktree" alt="Linktree Icon" width="60" height="60" />
       </a>
-      <a href="https://www.instagram.com/w3bCreation" target="_blank" title="Instagram">
+      <a href="https://www.instagram.com/w3bCreation" target="_blank" title="Instagram" data-analytics="social-instagram">
         <img src="https://cdn.simpleicons.org/instagram" alt="Instagram Icon" width="60" height="60" />
       </a>
-      <a href="https://www.threads.net/@w3bCreation" target="_blank" title="Threads">
+      <a href="https://www.threads.net/@w3bCreation" target="_blank" title="Threads" data-analytics="social-threads">
         <img src="https://cdn.simpleicons.org/threads/ffffff" alt="Threads Icon" width="60" height="60" />
       </a>
-      <a href="https://www.facebook.com/w3bCreation" target="_blank" title="Facebook">
+      <a href="https://www.facebook.com/w3bCreation" target="_blank" title="Facebook" data-analytics="social-facebook">
         <img src="https://cdn.simpleicons.org/facebook" alt="Facebook Icon" width="60" height="60" />
       </a>
-      <a href="https://github.com/w3bCreation" target="_blank" title="GitHub">
+      <a href="https://github.com/w3bCreation" target="_blank" title="GitHub" data-analytics="social-github">
         <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub Icon" width="60" height="60" />
       </a>
     </div>
     <p>© 2025 W3bCreation. Tous droits réservés.</p>
   </footer>
+
+  <!-- Script EmailJS ou autres (inchangé) -->
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
