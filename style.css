@@ -608,6 +608,7 @@ footer .socials a:hover {
     font-size: 1.5em;
     color: #fff;
     margin-bottom: 5px;
+    height: 1vh;
     line-height: 2;
   }
   
@@ -625,7 +626,7 @@ footer .socials a:hover {
     font-size: 1.5em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px;
+    margin-top: 50px;
     margin-bottom: 15px;
   }
 }
@@ -646,7 +647,7 @@ footer .socials a:hover {
 
 @media (max-width: 800px) {
   .hero {
-    height: 50vh;
+    height: 70vh;
     margin-top: 100px;
   }
   .mobile-logo,
