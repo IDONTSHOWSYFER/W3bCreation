@@ -70,9 +70,8 @@ const formFeedback = document.getElementById("formFeedback");
 
 // Écouteur d'événement pour le submit du formulaire
 mailForm.addEventListener("submit", function (e) {
-  e.preventDefault(); // Empêche le rechargement de la page
+  e.preventDefault();
 
-  // Vérification des champs (optionnelle si déjà validée par HTML)
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
@@ -84,7 +83,7 @@ mailForm.addEventListener("submit", function (e) {
 
   // Envoi de l'email via EmailJS
   // Remplacez "template_YOUR_TEMPLATE_ID" par l'ID de votre template dans EmailJS.
-  emailjs.sendForm('service_920psxp', 'template_7v794nc', this)
+  emailjs.sendForm('service_920psxp', 'template_j8o5t2o', this)
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
         formFeedback.style.color = "green";
