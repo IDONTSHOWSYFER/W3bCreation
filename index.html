@@ -6,18 +6,63 @@
   <title>W3bCreation - Votre partenaire en création de sites web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="W3bCreation accompagne votre entreprise de l’idéation à la mise en ligne : développement code & no‑code, SEO, SEA, automation marketing.">
-
-  <meta name="keywords" content="création site web, no code, développement web, marketing digital">
+    content="W3bCreation accompagne votre entreprise de l’idéation à la mise en ligne : développement code & no-code, SEO, SEA, automation marketing.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.w3bcreation.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="W3bCreation – Création de sites web & marketing digital">
+  <meta property="og:description" content="Sites sur mesure, SEO, no-code. Audit gratuit 15 min.">
+  <meta property="og:image" content="https://www.w3bcreation.fr/img/brand/hero-layer1.webp">
+  <meta property="og:url" content="https://www.w3bcreation.fr/">
+
+  <link rel="canonical" href="https://www.w3bcreation.fr/">
+  <link rel="preload" as="image" href="img/data/hero-layer1.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/brand/favicon.ico" type="image/x-icon">
+
+  <!-- FAQ JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type":    "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name":  "Quels délais pour créer un site ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Les délais varient selon la complexité…" }
+      },
+      {
+        "@type": "Question",
+        "name":  "Proposez-vous un suivi après la mise en ligne ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, maintenance, mises à jour…" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumb JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type":    "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil",  "item": "https://www.w3bcreation.fr/"          },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.w3bcreation.fr/#services" },
+      { "@type": "ListItem", "position": 3, "name": "Pourquoi", "item": "https://www.w3bcreation.fr/#why"      },
+      { "@type": "ListItem", "position": 4, "name": "Avis",     "item": "https://www.w3bcreation.fr/#testimonials" }
+    ]
+  }
+  </script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#a020f0">
 </head>
 
 <body>
+  <div id="progressbar"></div>
   <header>
     <div class="offer-banner-bottom">
       <p class="offer-text">
@@ -58,9 +103,11 @@
     </div>
   </header>
 
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-aos="fade-in">
+    <div class="hero-layer l1"></div>
+    <div class="hero-layer l2"></div>
     <div class="hero-content">
-      <h2>Votre site web, notre passion</h2>
+      <h1>Votre site web, notre passion</h1>
       <p>Des designs épurés et un tunnel de conversion optimisé pour booster votre activité.</p>
       <button type="button" class="devis-btn" data-analytics="devis-hero">
         Obtenir un devis ➔
@@ -72,7 +119,7 @@
     </div>
   </section>
 
-  <section class="services" id="services">
+  <section class="services" id="services" data-aos="fade-up">
     <h3>Nos Services</h3>
     <p>
       Nous concevons vos sites web avec élégance et performance.<br><br>
@@ -80,19 +127,23 @@
       pour répondre à vos besoins.
     </p>
     <div class="cms-logos">
-      <img src="img/data/shopify.png" alt="Shopify">
-      <img src="img/data/wordpress.png" alt="WordPress">
-      <img src="img/data/webflow.png" alt="Webflow">
-      <img src="img/data/code.png" alt="Codé sur mesure">
+      <img src="img/data/shopify.png" alt="Logo Shopify" loading="lazy">
+      <img src="img/data/wordpress.png" alt="Logo WordPress" loading="lazy">
+      <img src="img/data/webflow.png" alt="Logo Webflow" loading="lazy">
+      <img src="img/data/code.png" alt="Codé sur mesure" loading="lazy">
     </div>
   </section>
 
-  <section class="why" id="why">
+  <section class="why" id="why" data-aos="fade-right">
     <h3>Pourquoi nous choisir ?</h3>
     <p>
       Notre expertise sur-mesure garantit une optimisation complète de votre conversion.<br>
       Nous analysons vos besoins, créons un design unique et assurons un suivi personnalisé.
     </p>
+    <div class="counters">
+      <div><span class="count" data-target="98">0</span>% satisfaction</div>
+      <div><span class="count" data-target="30">0</span>% conversions en plus</div>
+    </div>
     <ul class="arguments">
       <li>Analyse approfondie et conseil dédié</li>
       <li>Design épuré et moderne à votre image</li>
@@ -101,10 +152,10 @@
       <li>Support technique réactif et personnalisé</li>
     </ul>
     <div class="why-images">
-      <img src="img/data/uxui.png" alt="UX/UI">
-      <img src="img/data/seo.png" alt="SEO">
-      <img src="img/data/analytics.png" alt="Analytics">
-      <img src="img/data/support.png" alt="Support">
+      <img src="img/data/uxui.png" alt="UX/UI" loading="lazy">
+      <img src="img/data/seo.png" alt="SEO" loading="lazy">
+      <img src="img/data/analytics.png" alt="Analytics" loading="lazy">
+      <img src="img/data/support.png" alt="Support" loading="lazy">
     </div>
   </section>
 
@@ -114,7 +165,7 @@
       <div class="carousel-inner">
         <div class="slide active">
           <div class="testimonial-photo">
-            <img src="img/customers/jean.png" alt="Jean">
+            <img src="img/customers/jean.png" alt="Jean" loading="lazy">
           </div>
           <p>« W3bCreation a transformé ma présence en ligne. Le design épuré et l’ergonomie du site ont boosté mes
             ventes ! »</p>
@@ -129,7 +180,7 @@
         </div>
         <div class="slide">
           <div class="testimonial-photo">
-            <img src="img/customers/remi.png" alt="Marie">
+            <img src="img/customers/remi.png" alt="Marie" loading="lazy">
           </div>
           <p>« Service exceptionnel : grâce à W3bCreation, notre site a gagné en attractivité et notre trafic a augmenté
             dès la première semaine ! »</p>
@@ -157,7 +208,7 @@
         </div>
         <div class="slide">
           <div class="testimonial-photo">
-            <img src="img/customers/karim.png" alt="Karim">
+            <img src="img/customers/karim.png" alt="Karim" loading="lazy">
           </div>
           <p>« Je recommande vivement W3bCreation. Leur approche moderne et leur conversion optimisée ont fait la
             différence dans mon activité. »</p>
@@ -172,7 +223,7 @@
         </div>
         <div class="slide">
           <div class="testimonial-photo">
-            <img src="img/customers/johana.png" alt="Johana">
+            <img src="img/customers/johana.png" alt="Johana" loading="lazy">
           </div>
           <p>« Je recommande vivement W3bCreation. Leur approche moderne et leur conversion optimisée ont fait la
             différence dans mon activité. »</p>
@@ -187,7 +238,7 @@
         </div>
         <div class="slide">
           <div class="testimonial-photo">
-            <img src="img/customers/marc.png" alt="Marc">
+            <img src="img/customers/marc.png" alt="Marc" loading="lazy">
           </div>
           <p>« Je recommande vivement W3bCreation. Leur approche moderne et leur conversion optimisée ont fait la
             différence dans mon activité. »</p>
@@ -278,25 +329,62 @@
   <footer>
     <div class="socials">
       <a href="https://linktr.ee/w3bCreation" target="_blank" title="Linktree" data-analytics="social-linktree">
-        <img src="https://cdn.simpleicons.org/linktree" alt="Linktree Icon" width="60" height="60" />
+        <img src="https://cdn.simpleicons.org/linktree" alt="Linktree Icon" width="60" height="60" loading="lazy" />
       </a>
       <a href="https://www.instagram.com/w3bCreation" target="_blank" title="Instagram"
         data-analytics="social-instagram">
-        <img src="https://cdn.simpleicons.org/instagram" alt="Instagram Icon" width="60" height="60" />
+        <img src="https://cdn.simpleicons.org/instagram" alt="Instagram Icon" width="60" height="60" loading="lazy" />
       </a>
       <a href="https://www.threads.net/@w3bCreation" target="_blank" title="Threads" data-analytics="social-threads">
-        <img src="https://cdn.simpleicons.org/threads/ffffff" alt="Threads Icon" width="60" height="60" />
+        <img src="https://cdn.simpleicons.org/threads/ffffff" alt="Threads Icon" width="60" height="60"
+          loading="lazy" />
       </a>
       <a href="https://www.facebook.com/w3bCreation" target="_blank" title="Facebook" data-analytics="social-facebook">
-        <img src="https://cdn.simpleicons.org/facebook" alt="Facebook Icon" width="60" height="60" />
+        <img src="https://cdn.simpleicons.org/facebook" alt="Facebook Icon" width="60" height="60" loading="lazy" />
       </a>
     </div>
     <p>© 2025 W3bCreation. Tous droits réservés.</p>
   </footer>
-
-  <!-- Script EmailJS ou autres (inchangé) -->
+  <!-- Sticky CTA mobile -->
+  <div id="mobile-sticky" class="sticky-cta" hidden>
+    <span>Audit gratuit en 15&nbsp;min&nbsp;?</span>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Réserver
+    </button>
+  </div>
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+  <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js" defer></script>
+  <script src="scripts/script.js" defer></script>
+  <script src="scripts/animations.js" defer></script>
+  <!-- Exit-intent popup -->
+  <div id="exit-popup" class="popup" hidden>
+    <div class="popup-inner">
+      <h4>Avant de partir&nbsp;!</h4>
+      <p>Téléchargez notre e-book « 15 hacks SEO » ✨</p>
+      <button id="popup-cta">Je télécharge</button>
+      <span class="close">×</span>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sources = [...document.querySelectorAll('img[data-src]')];
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const img = e.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            io.unobserve(img);
+          }
+        });
+      }, { rootMargin: '200px' });
+      sources.forEach(img => io.observe(img));
+    });
+  </script>
 </body>
 
 </html>

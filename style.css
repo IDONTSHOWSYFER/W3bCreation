@@ -1,3 +1,36 @@
+:root {
+  --primary: #a020f0;
+  --secondary: #ff69b4;
+  --dark: #000;
+  --light: #fff;
+  --radius: 25px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  [data-aos],
+  .gsap-anim,
+  .slide {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.sticky-cta {
+  animation: slide-up .6s ease-out forwards;
+}
+
 .burger span,
 body {
   background-color: #fff;
@@ -16,6 +49,10 @@ form#mailForm button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+input.error, textarea.error{border-color:#e74c3c;}
+@keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.feedback.shake{animation:shake .6s;}
 
 footer,
 header {
@@ -59,6 +96,16 @@ header {
   align-items: center;
   margin-top: 10px;
   justify-content: space-between;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .offer-banner-bottom {
@@ -114,7 +161,7 @@ header {
 
 .logo span {
   margin-left: 10px;
-  font-size: 0.75em; 
+  font-size: 0.75em;
   font-weight: bold;
   color: #fff;
 }
@@ -135,16 +182,17 @@ nav {
   margin: 0;
 }
 
-.nav-links > .logo {
+.nav-links>.logo {
   display: none;
 }
 
 @media (max-width: 800px) {
-  .nav-links > .logo {
+  .nav-links>.logo {
     display: block;
     text-align: center;
     margin-bottom: 20px;
   }
+
   .burger {
     display: flex;
     width: 25px;
@@ -195,9 +243,6 @@ nav {
 
 .hero {
   margin-top: 0;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    url('/img/data/banner.png') center center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -206,13 +251,35 @@ nav {
   padding: 0 20px;
 }
 
+/* === Parallax multi-calques Hero === */
+.hero{position:relative; overflow:hidden;}
+
+.hero-layer{
+  position:absolute; inset:0;
+  background-size:cover;
+  background-repeat:no-repeat;
+  pointer-events:none;
+  z-index: 0;
+}
+.l1{background-image:url('img/data/hero-layer1.webp');}
+.l2{
+  background-image:url('img/data/hero-layer2.webp');
+  mix-blend-mode:screen;
+  opacity:.35;
+}
+
 .arguments,
 .carousel {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.hero-content h2 {
+.hero-content{
+  position: relative;
+  z-index: 5;       
+}
+
+.hero-content h1 {
   margin-bottom: 20px;
   font-size: 100px;
 }
@@ -224,7 +291,7 @@ nav {
 
 .cta .cta-btn,
 .cta-btn {
-  background: transparent;  
+  background: transparent;
   color: rgb(255, 255, 255);
   padding: 15px 30px;
   font-size: 1.2em;
@@ -245,6 +312,7 @@ nav {
   font-size: 1.2em;
   border-radius: 25px;
   border: none;
+  margin-right: 20px;
 }
 
 .devis .devis-btn:hover,
@@ -261,7 +329,7 @@ nav {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -295,12 +363,12 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1000px; 
-  margin: 20px auto 0; 
+  max-width: 1000px;
+  margin: 20px auto 0;
 }
 
 .cms-logos img {
-  width: 100%; 
+  width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 25px;
@@ -335,15 +403,73 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1000px; 
-  margin: 20px auto 0; 
+  max-width: 1000px;
+  margin: 20px auto 0;
 }
 
 .why-images img {
-  width: 100%; 
+  width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 25px;
+}
+
+.counters{
+  display:flex; gap:40px; justify-content:center;
+  margin:30px 0; font-size:2.2rem; font-weight:700; color:var(--primary);
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1400;
+}
+
+.popup[hidden]{
+  display:none !important; 
+}
+
+.popup-inner {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  position: relative;
+}
+
+.popup-inner h4 {
+  margin: 0 0 10px;
+  font-size: 1.4rem
+}
+
+.popup-inner button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-weight: 700;
+  margin-top: 15px
+}
+
+.popup .close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 1.6rem;
+  cursor: pointer
+}
+
+@media (max-width:800px) {
+  .popup {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -597,12 +723,30 @@ footer .socials a:hover {
   color: #a020f0;
 }
 
+/* === Ripple effect === */
+.btn-ripple{position:relative; overflow:hidden;}
+.btn-ripple::after{
+  content:''; position:absolute; border-radius:50%;
+  width:1px; height:1px; background:rgba(255,255,255,.45);
+  transform:scale(0); opacity:0; transition:transform .6s,opacity .8s;
+}
+.btn-ripple:active::after{
+  transform:scale(30); opacity:0;
+}
+
+#progressbar{
+  position:fixed; top:0; left:0; height:4px; background:var(--secondary);
+  width:0; z-index:2000;
+}
+
 @media (min-width: 1200px) {
+
   .contact .contact-btn,
   .contact-btn {
-  margin-top: -12.5px;
-  margin-left: 15px;
+    margin-top: -12.5px;
+    margin-left: 15px;
   }
+
   .offer-banner-bottom .offer-text {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.5em;
@@ -611,12 +755,12 @@ footer .socials a:hover {
     height: 1vh;
     line-height: 2;
   }
-  
+
   .offer-banner-bottom #countdown {
     font-weight: bold;
     color: #9b59b6;
   }
-  
+
   .offer-banner-bottom .cta-btn {
     background-color: #9b59b6;
     color: #fff;
@@ -632,10 +776,11 @@ footer .socials a:hover {
 }
 
 @media (max-width: 1200px) {
+
   .contact .contact-btn,
   .contact-btn {
-  margin-top: -12.5px;
-  margin-left: 15px;
+    margin-top: -12.5px;
+    margin-left: 15px;
   }
 }
 
@@ -650,11 +795,13 @@ footer .socials a:hover {
     height: 70vh;
     margin-top: 100px;
   }
+
   .mobile-logo,
   .nav-links li a {
     display: block;
     text-align: center;
   }
+
   .nav-links {
     position: absolute;
     right: 0;
@@ -668,49 +815,91 @@ footer .socials a:hover {
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
+
   .mobile-logo {
     margin-bottom: 20px;
   }
+
   .mobile-logo img {
     max-height: 40px;
     margin: 0 auto;
   }
+
   .nav-links li {
     margin: 20px 0;
     width: 100%;
     text-align: center;
   }
+
   .nav-links li a {
     width: 100%;
     left: 0;
   }
+
   .nav-active {
     transform: translateX(0);
   }
+
   .burger {
     display: flex;
     width: 25px;
     height: 25px;
     margin-left: auto;
   }
+
   .contact-btn {
     margin: 0;
   }
-  .hero-content h2 {
+
+  .hero-content h1 {
     font-size: 2.2em;
   }
+
   .hero-content p {
     font-size: 1em;
   }
+
   .cta-btn {
     margin-top: 15px;
   }
+
   .arguments-columns {
     flex-direction: column;
     gap: 30px;
   }
+
   .faq-container {
     text-align: left;
+  }
+}
+
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  z-index: 1200;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, .25);
+}
+
+.sticky-cta button {
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 700;
+}
+
+@media(min-width:800px) {
+  .sticky-cta {
+    display: none;
   }
 }
 
@@ -718,6 +907,9 @@ footer .socials a:hover {
   .carousel-control {
     font-size: 1em;
     padding: 5px;
+  }
+  .devis-btn {
+    margin-right: 0;
   }
   footer .socials a img {
     width: 50px;
@@ -729,22 +921,27 @@ footer .socials a:hover {
   .detailed-arguments {
     padding: 40px 10px;
   }
+
   .detailed-arguments h3 {
     font-size: 1.6em;
     margin-bottom: 30px;
   }
+
   .arguments-columns {
     flex-direction: column;
     gap: 20px;
     max-width: 100%;
     overflow-x: hidden;
   }
+
   .arguments-columns div {
     min-width: auto;
   }
+
   .arguments-columns h4 {
     font-size: 1.3em;
   }
+
   .arguments-columns ul li {
     font-size: 0.95em;
   }
@@ -755,19 +952,30 @@ footer .socials a:hover {
     width: 40px;
     height: 40px;
   }
+
+  h1 {
+    font-size: 2.5em;
+  }
+  .counters {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 300px) {
+
   body,
   html {
     overflow-x: hidden;
   }
-  .hero-content h2 {
+
+  .hero-content h1 {
     font-size: 1.8em;
   }
+
   .hero-content p {
     font-size: 0.9em;
   }
+
   footer .socials a img {
     width: 30px;
     height: 30px;
@@ -775,23 +983,28 @@ footer .socials a:hover {
 }
 
 @media (max-width: 270px) {
+
   footer,
   header {
     padding: 15px;
   }
+
   .contact-form-section p,
   .nav-links li a,
   .services p,
   .why p {
     font-size: 0.9em;
   }
-  .hero-content h2 {
+
+  .hero-content h1 {
     font-size: 1.5em;
   }
+
   .hero-content p,
   footer p {
     font-size: 0.8em;
   }
+
   .cta-btn {
     font-size: 1em;
     padding: 10px 20px;
