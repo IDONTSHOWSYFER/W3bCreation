@@ -29,6 +29,7 @@
 
 .sticky-cta {
   animation: slide-up .6s ease-out forwards;
+  transition:opacity .35s ease;
 }
 
 .burger span,
@@ -50,9 +51,38 @@ form#mailForm button {
   transition: background-color 0.3s;
 }
 
-input.error, textarea.error{border-color:#e74c3c;}
-@keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
-.feedback.shake{animation:shake .6s;}
+input.error,
+textarea.error {
+  border-color: #e74c3c;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translateX(-1px)
+  }
+
+  20%,
+  80% {
+    transform: translateX(2px)
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px)
+  }
+
+  40%,
+  60% {
+    transform: translateX(4px)
+  }
+}
+
+.feedback.shake {
+  animation: shake .6s;
+}
 
 footer,
 header {
@@ -199,6 +229,10 @@ nav {
     height: 25px;
     margin-left: auto;
   }
+
+  .offer-banner-bottom {
+    margin-bottom: 35px;
+  }
 }
 
 .nav-links li {
@@ -252,20 +286,28 @@ nav {
 }
 
 /* === Parallax multi-calques Hero === */
-.hero{position:relative; overflow:hidden;}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
 
-.hero-layer{
-  position:absolute; inset:0;
-  background-size:cover;
-  background-repeat:no-repeat;
-  pointer-events:none;
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
   z-index: 0;
 }
-.l1{background-image:url('img/data/hero-layer1.webp');}
-.l2{
-  background-image:url('img/data/hero-layer2.webp');
-  mix-blend-mode:screen;
-  opacity:.35;
+
+.l1 {
+  background-image: url('img/data/hero-layer1.webp');
+}
+
+.l2 {
+  background-image: url('img/data/hero-layer2.webp');
+  mix-blend-mode: screen;
+  opacity: .35;
 }
 
 .arguments,
@@ -274,9 +316,9 @@ nav {
   margin: 0 auto;
 }
 
-.hero-content{
+.hero-content {
   position: relative;
-  z-index: 5;       
+  z-index: 5;
 }
 
 .hero-content h1 {
@@ -414,9 +456,14 @@ nav {
   border-radius: 25px;
 }
 
-.counters{
-  display:flex; gap:40px; justify-content:center;
-  margin:30px 0; font-size:2.2rem; font-weight:700; color:var(--primary);
+.counters {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin: 30px 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 .popup {
@@ -429,8 +476,8 @@ nav {
   z-index: 1400;
 }
 
-.popup[hidden]{
-  display:none !important; 
+.popup[hidden] {
+  display: none !important;
 }
 
 .popup-inner {
@@ -724,19 +771,36 @@ footer .socials a:hover {
 }
 
 /* === Ripple effect === */
-.btn-ripple{position:relative; overflow:hidden;}
-.btn-ripple::after{
-  content:''; position:absolute; border-radius:50%;
-  width:1px; height:1px; background:rgba(255,255,255,.45);
-  transform:scale(0); opacity:0; transition:transform .6s,opacity .8s;
-}
-.btn-ripple:active::after{
-  transform:scale(30); opacity:0;
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
 }
 
-#progressbar{
-  position:fixed; top:0; left:0; height:4px; background:var(--secondary);
-  width:0; z-index:2000;
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 1px;
+  height: 1px;
+  background: rgba(255, 255, 255, .45);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform .6s, opacity .8s;
+}
+
+.btn-ripple:active::after {
+  transform: scale(30);
+  opacity: 0;
+}
+
+#progressbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--secondary);
+  width: 0;
+  z-index: 2000;
 }
 
 @media (min-width: 1200px) {
@@ -908,9 +972,11 @@ footer .socials a:hover {
     font-size: 1em;
     padding: 5px;
   }
+
   .devis-btn {
     margin-right: 0;
   }
+
   footer .socials a img {
     width: 50px;
     height: 50px;
@@ -956,6 +1022,7 @@ footer .socials a:hover {
   h1 {
     font-size: 2.5em;
   }
+
   .counters {
     font-size: 1.5rem;
   }
@@ -972,6 +1039,10 @@ footer .socials a:hover {
     font-size: 1.8em;
   }
 
+  .offer-banner-bottom {
+    margin-bottom: 35px;
+  }
+
   .hero-content p {
     font-size: 0.9em;
   }
@@ -982,11 +1053,15 @@ footer .socials a:hover {
   }
 }
 
-@media (max-width: 270px) {
+@media (max-width: 295px) {
 
   footer,
   header {
     padding: 15px;
+  }
+
+  .offer-banner-bottom {
+    margin-bottom: 50px;
   }
 
   .contact-form-section p,

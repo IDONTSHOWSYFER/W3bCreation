@@ -51,6 +51,30 @@ window.addEventListener("resize", () => {
   bannerHeight = offerBanner.offsetHeight;
 });
 
+/* ===== Masquer l’offre spéciale quand le footer apparaît ===== */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const footer      = document.querySelector('footer');
+  const banner      = document.querySelector('.offer-banner-bottom');
+
+  /* transition douce (si tu ne l’as pas déjà en CSS) */
+  banner.style.transition = 'transform .35s ease, opacity .35s ease';
+
+  const io = new IntersectionObserver(entries=>{
+     const visible = entries[0].isIntersecting;   // true = footer dans le viewport
+     if (visible){
+       /* on slide la bannière sous l’écran et on coupe les clics */
+       banner.style.transform     = `translateY(${banner.offsetHeight}px)`;
+       banner.style.opacity       = '0';
+       banner.style.pointerEvents = 'none';
+     } else{
+       banner.style.transform     = 'translateY(0)';
+       banner.style.opacity       = '1';
+       banner.style.pointerEvents = 'auto';
+     }
+  },{root:null, threshold:0});         // threshold 0 = dès qu’un pixel du footer apparaît
+  io.observe(footer);
+});
+
 window.addEventListener("scroll", () => {
   const scrollBottom =
     window.pageYOffset || document.documentElement.scrollBottom;
